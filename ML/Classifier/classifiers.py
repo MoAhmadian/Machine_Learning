@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sb
 #Read the dataset into a dataframe
-dataPath = r'data\titanic.csv'
+dataPath = r'\data\titanic.csv'
 df = pd.read_csv(dataPath, sep='\t', engine='python')
 
 #Drop some columns which is not relevant to the analysis (they are not numeric)
