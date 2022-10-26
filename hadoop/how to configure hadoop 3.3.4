@@ -1,0 +1,48 @@
+1- file: hadoop\etc\hadoop\core-site.xml
+<configuration>
+  <property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://localhost:9000</value>
+  </property>
+</configuration>
+
+2- file:hadoop\etc\hadoop\hdfs-site.xml
+<configuration>
+  <property>
+      <name>dfs.replication</name>
+      <value>1</value>
+  </property>
+  <property>
+      <name>dfs.namenode.name.dir</name>
+      <value>C:\bigData\hadoop334\data\namenode</value>
+  </property>
+  <property>
+      <name>dfs.datanode.data.dir</name>
+      <value>C:\bigData\hadoop334\data\datanode</value>
+  </property>
+</configuration>
+
+3- file:hadoop\etc\hadoop\mapred-site.xml
+<configuration>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
+</configuration>
+
+4- file:hadoop\etc\hadoop\yarn-site.xml
+<configuration>
+  <property>
+      <name>yarn.nodemanager.aux-services</name>
+      <value>mapreduce_shuffle</value>
+  </property>
+  <property>
+      <name>yarn.nodemanager.auxservices.mapreduce.shuffle.class</name>
+      <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+</configuration>
+
+5- file:hadoop\etc\hadoop\hadoop-env.cmd
+set JAVA_HOME="C:\Program Files\Java\jdk1.8.0_241"
+
+delete hadoop\bin and extract from the zip file.
