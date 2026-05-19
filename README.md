@@ -19,6 +19,7 @@ A comprehensive collection of Machine Learning, Deep Learning, and Big Data proj
 | Polynomial Features | Polynomial feature generation for non-linear relationships | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/ML/PolynomialFeatures) |
 | GridSearchCV | Hyperparameter tuning using grid search cross-validation | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/ML/GridSearchCV) |
 | Hyperparameter Tuning | Advanced techniques for optimizing model hyperparameters | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/ML/HyperParameterTuning) |
+| Two-Tower Recommendation System | Deep learning based recommendation system using dual neural network towers for query and candidate embeddings | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/ML/TwoTowerRecommendation) |
 
 ### Deep Learning (DL)
 
@@ -32,7 +33,7 @@ A comprehensive collection of Machine Learning, Deep Learning, and Big Data proj
 
 | Project | Description | Link |
 |---------|-------------|------|
-| Linear Algebra | Singular Value Decomposition and linear algebra fundamentals | [View](https://github.com/MoAhmadian/Machine_Learning/blob/master/Linear%20algebra/Singular%20value%20decomposition.ipynb) |
+| Linear Algebra | Singular Value Decomposition and linear algebra fundamentals | [View](https://github.com/MoAhmadian/Machine_Learning/blob/master/Linear%20algebra/Singular%20value%20decompositio[...] |
 
 ### Big Data
 
@@ -56,6 +57,7 @@ Machine_Learning/
 │   ├── PolynomialFeatures/
 │   ├── GridSearchCV/
 │   ├── HyperParameterTuning/
+│   ├── TwoTowerRecommendation/
 │   └── data/                    # Supporting datasets
 ├── DL/                          # Deep Learning Projects
 │   ├── LSTM/
@@ -83,7 +85,7 @@ Machine_Learning/
 
 ## 📝 Topics Covered
 
-- **Machine Learning**: Regression, Classification, Feature Engineering, Hyperparameter Tuning, Model Pipelines
+- **Machine Learning**: Regression, Classification, Feature Engineering, Hyperparameter Tuning, Model Pipelines, Recommendation Systems
 - **Deep Learning**: LSTM, Anomaly Detection, Text Summarization
 - **Fundamentals**: Linear Algebra, Data Preprocessing
 - **Big Data**: Hadoop Configuration and Distributed Computing
