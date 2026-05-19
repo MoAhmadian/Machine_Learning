@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 
 # Guarantee identical data generation on every run
 np.random.seed(42)
@@ -7,6 +8,10 @@ np.random.seed(42)
 NUM_USERS = 100
 NUM_POSTS = 500
 NUM_INTERACTIONS = 2500
+
+# --- 0. CREATE DATA DIRECTORY ---
+data_dir = '../data'
+os.makedirs(data_dir, exist_ok=True)
 
 # --- 1. GENERATE USERS METADATA ---
 user_ids = np.arange(1, NUM_USERS + 1)
@@ -44,8 +49,8 @@ interactions_df = pd.DataFrame({
 })
 
 # --- 4. EXPORT TO CSV ---
-users_df.to_csv('users.csv', index=False)
-posts_df.to_csv('posts.csv', index=False)
-interactions_df.to_csv('interactions.csv', index=False)
+users_df.to_csv(os.path.join(data_dir, 'users.csv'), index=False)
+posts_df.to_csv(os.path.join(data_dir, 'posts.csv'), index=False)
+interactions_df.to_csv(os.path.join(data_dir, 'interactions.csv'), index=False)
 
-print("Files 'users.csv', 'posts.csv', and 'interactions.csv' have been re-generated successfully!")
+print("Files 'users.csv', 'posts.csv', and 'interactions.csv' have been re-generated successfully in DL/data/!")
