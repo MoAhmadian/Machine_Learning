@@ -19,7 +19,6 @@ A comprehensive collection of Machine Learning, Deep Learning, and Big Data proj
 | Polynomial Features | Polynomial feature generation for non-linear relationships | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/ML/PolynomialFeatures) |
 | GridSearchCV | Hyperparameter tuning using grid search cross-validation | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/ML/GridSearchCV) |
 | Hyperparameter Tuning | Advanced techniques for optimizing model hyperparameters | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/ML/HyperParameterTuning) |
-| Two-Tower Recommendation System | Deep learning based recommendation system using dual neural network towers for query and candidate embeddings | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/ML/TwoTowerRecommendation) |
 
 ### Deep Learning (DL)
 
@@ -28,12 +27,13 @@ A comprehensive collection of Machine Learning, Deep Learning, and Big Data proj
 | LSTM | Long Short-Term Memory networks for sequential data processing | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/DL/LSTM) |
 | Anomaly Detection | Deep learning approaches for detecting outliers and anomalies | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/DL/AnomayDetection) |
 | Text Summarization | Neural networks for automated text summarization | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/DL/TextSummarization) |
+| Two-Tower Recommendation System | Deep learning based recommendation system using dual neural network towers for query and candidate embeddings | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/DL/TwoTowerRecommendation) |
 
 ### Foundational Topics
 
 | Project | Description | Link |
 |---------|-------------|------|
-| Linear Algebra | Singular Value Decomposition and linear algebra fundamentals | [View](https://github.com/MoAhmadian/Machine_Learning/blob/master/Linear%20algebra/Singular%20value%20decompositio[...] |
+| Linear Algebra | Singular Value Decomposition and linear algebra fundamentals | [View](https://github.com/MoAhmadian/Machine_Learning/blob/master/Linear%20algebra/Singular%20value%20decompositio) |
 
 ### Big Data
 
@@ -57,12 +57,12 @@ Machine_Learning/
 │   ├── PolynomialFeatures/
 │   ├── GridSearchCV/
 │   ├── HyperParameterTuning/
-│   ├── TwoTowerRecommendation/
 │   └── data/                    # Supporting datasets
 ├── DL/                          # Deep Learning Projects
 │   ├── LSTM/
 │   ├── Anomaly Detection/
 │   ├── Text Summarization/
+│   ├── TwoTowerRecommendation/
 │   └── data/                    # Supporting datasets
 ├── Linear algebra/              # Mathematical foundations
 └── hadoop/                      # Big Data & Distributed Computing
@@ -85,8 +85,8 @@ Machine_Learning/
 
 ## 📝 Topics Covered
 
-- **Machine Learning**: Regression, Classification, Feature Engineering, Hyperparameter Tuning, Model Pipelines, Recommendation Systems
-- **Deep Learning**: LSTM, Anomaly Detection, Text Summarization
+- **Machine Learning**: Regression, Classification, Feature Engineering, Hyperparameter Tuning, Model Pipelines
+- **Deep Learning**: LSTM, Anomaly Detection, Text Summarization, Recommendation Systems
 - **Fundamentals**: Linear Algebra, Data Preprocessing
 - **Big Data**: Hadoop Configuration and Distributed Computing
 
