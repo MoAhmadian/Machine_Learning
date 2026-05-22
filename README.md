@@ -41,6 +41,13 @@ A comprehensive collection of Machine Learning, Deep Learning, and Big Data proj
 |---------|-------------|------|
 | Hadoop | Hadoop configuration and distributed computing setup | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/hadoop) |
 
+
+### Finance Data Processing
+
+| Project | Description | Link |
+|---------|-------------|------|
+| FidelityAggregator | This project aggregates position data across multiple Fidelity brokerage accounts based on ticker symbols. | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/dataProcessing/FidelityAggregator) |
+
 ---
 
 ## 📚 Repository Organization
