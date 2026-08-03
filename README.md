@@ -27,7 +27,7 @@ A comprehensive collection of Machine Learning, Deep Learning, and Big Data proj
 | LSTM | Long Short-Term Memory networks for sequential data processing | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/DL/LSTM) |
 | Anomaly Detection | Deep learning approaches for detecting outliers and anomalies | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/DL/AnomayDetection) |
 | Text Summarization | Neural networks for automated text summarization | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/DL/TextSummarization) |
-| Two-Tower Recommendation System | Deep learning based recommendation system using dual neural network towers for query and candidate embeddings | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/DL/TwoTowerRecommendation) |
+| Two-Tower Recommendation System | Deep learning based recommendation system using dual neural network towers for query and candidate embeddings | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/DL/Two-TowerRecommendation) |
 
 ### Foundational Topics
 
@@ -47,6 +47,12 @@ A comprehensive collection of Machine Learning, Deep Learning, and Big Data proj
 | Project | Description | Link |
 |---------|-------------|------|
 | FidelityAggregator | This project aggregates position data across multiple Fidelity brokerage accounts based on ticker symbols. | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/dataProcessing/FidelityAggregator) |
+
+### Applications & Tools
+
+| Project | Description | Link |
+|---------|-------------|------|
+| MCP Server Application Tracker | A local MCP server for tracking job applications (company, role, status, interview dates, and notes). Built with the MCP Python SDK v2 and designed to be used from Claude Desktop / Claude Code or any MCP-compatible host. | [View](https://github.com/MoAhmadian/Machine_Learning/tree/master/mcp-server-application-tracker) |
 
 ---
 
@@ -72,7 +78,8 @@ Machine_Learning/
 │   ├── TwoTowerRecommendation/
 │   └── data/                    # Supporting datasets
 ├── Linear algebra/              # Mathematical foundations
-└── hadoop/                      # Big Data & Distributed Computing
+├── hadoop/                      # Big Data & Distributed Computing
+└── mcp-server-application-tracker/ # Local MCP server for tracking job applications
 ```
 
 ---
