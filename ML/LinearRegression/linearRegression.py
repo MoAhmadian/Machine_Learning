@@ -30,12 +30,12 @@ class LinearRegression:
 
     def fit(self, X: np.ndarray, y: np.ndarray):
         n_samples, n_features = X.shape
-        # Initialize parameters
-        self.w = np.zeros(n_features)
+        self.w = np.zeros(n_features)  # Init weights
         self.b = 0
+        print_interval = max(1, self.n_iters // 10)
 
         # Gradient descent
-        for _ in range(self.n_iters):
+        for iteration in range(self.n_iters):
             y_predicted = np.dot(X, self.w) + self.b
             dw = (1/n_samples) * np.dot(X.T, (y_predicted - y))
             db = (1/n_samples) * np.sum(y_predicted - y)
@@ -43,6 +43,10 @@ class LinearRegression:
             # Update parameters
             self.w -= self.learning_rate * dw
             self.b -= self.learning_rate * db
+
+            if (iteration + 1) % print_interval == 0:
+                error = np.mean((y - (np.dot(X, self.w) + self.b)) ** 2)
+                print(f"Epoch {iteration + 1}: MSE = {error:.4f}")
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         linear_model = np.dot(X, self.w) + self.b
@@ -56,7 +60,7 @@ def mse(y_true: np.ndarray, y_pred: np.ndarray) -> float:
 # Example usage
 if __name__ == "__main__":
     # Generate a simple dataset
-    X, y = datasets.make_regression(n_samples=100, n_features=1, noise=20, random_state=42)
+    X, y = datasets.make_regression(n_samples=1000, n_features=1, noise=30, random_state=42)
     
     # Split the dataset into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -77,7 +81,7 @@ if __name__ == "__main__":
     # Make predictions
     y_pred = model.predict(X_test)
     mse_value = mse(y_test, y_pred)
-    print(f'Mean Squared Error: {mse_value}')   
+    print(f'Mean Squared Error on test set: {mse_value}')   
 
     y_pred_line = model.predict(X)
     plt.figure(figsize=(8, 6))
@@ -88,4 +92,3 @@ if __name__ == "__main__":
     plt.title('Linear Regression Fit')
     plt.legend()   
     plt.show()
-    
