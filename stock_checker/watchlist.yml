@@ -2,12 +2,39 @@
 #   min_price  -> alert if current price falls below this
 #   change_pct -> alert if |price change vs. previous day's close| >= this percent
 stocks:
-  - symbol: AAPL
-    min_price: 200
-    change_pct: 3
-  - symbol: NVDA
-    min_price: 120
-    change_pct: 5
+  - symbol: GOOGL
+    change_pct: 2
+    min_price: 180
   - symbol: MSFT
     min_price: 400
     change_pct: 3
+  - symbol: AMZN
+    change_pct: 2
+    min_price: 220
+  - symbol: NVDA
+    min_price: 200
+    change_pct: 5
+  - symbol: TSLA
+    change_pct: 2
+    min_price: 300
+  - symbol: AAPL
+    change_pct: 2
+    min_price: 300
+  - symbol: AMD
+    change_pct: 2
+    min_price: 450
+  - symbol: AVGO
+    change_pct: 2
+    min_price: 200
+  - symbol: PLTR
+    change_pct: 2
+    min_price: 170
+  - symbol: MU
+    change_pct: 2
+    min_price: 650
+  - symbol: LRCX
+    change_pct: 5
+    min_price: 150
+  - symbol: BTC-USD
+    change_pct: 5
+    min_price: 70000
