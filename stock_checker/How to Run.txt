@@ -1,0 +1,15 @@
+Setup
+
+1. Put the four files in a repo, keeping stock-alerts.yml at .github/workflows/.
+2. Create a Gmail app password (Google Account → Security → 2-Step Verification → App passwords). Your normal password won’t work.
+3. In the repo, go to Settings → Secrets and variables → Actions and add two secrets: SMTP_USER (the Gmail address sending the alerts) and SMTP_PASSWORD (the app password).
+4. Edit watchlist.yml with your tickers, then run the workflow once manually from the Actions tab (workflow_dispatch) to test.
+
+How it works
+
+- Config: each ticker has its own min_price and change_pct, which is easier to maintain than three parallel lists that must stay aligned.
+- Baseline: the percent change is measured against the previous trading day’s close, as you specified.
+- Triggers: an alert fires when the price drops below min_price, or when the absolute move is at least change_pct. That means a rise or a fall counts. If you only want drops, change abs(change) to -change in check_stocks.py.
+- Email: all triggers from a run go out in one email to m.ahmadian@gmail.com.
+- De-duplication: each ticker and alert type fires at most once per day, so a stock stuck below its minimum won’t email you every hour. The state is kept in the Actions cache.
+- Schedule: the cron runs hourly, Mon–Fri, 14:00–21:00 UTC, which covers US market hours in both EST and EDT.

@@ -1,0 +1,13 @@
+# For each ticker:
+#   min_price  -> alert if current price falls below this
+#   change_pct -> alert if |price change vs. previous day's close| >= this percent
+stocks:
+  - symbol: AAPL
+    min_price: 200
+    change_pct: 3
+  - symbol: NVDA
+    min_price: 120
+    change_pct: 5
+  - symbol: MSFT
+    min_price: 400
+    change_pct: 3
