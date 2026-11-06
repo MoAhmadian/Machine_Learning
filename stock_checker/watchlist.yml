@@ -1,13 +1,13 @@
 # For each ticker:
-#   min_price  -> alert if current price falls below this
 #   change_pct -> alert if |price change vs. previous day's close| >= this percent
+#   min_price  -> alert if current price falls below this
 stocks:
   - symbol: GOOGL
     change_pct: 2
     min_price: 180
   - symbol: MSFT
-    min_price: 400
     change_pct: 3
+    min_price: 400
   - symbol: AMZN
     change_pct: 2
     min_price: 220
@@ -38,3 +38,4 @@ stocks:
   - symbol: BTC-USD
     change_pct: 3
     min_price: 70000
+    
