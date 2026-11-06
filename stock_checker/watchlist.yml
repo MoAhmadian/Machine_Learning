@@ -13,7 +13,7 @@ stocks:
     min_price: 220
   - symbol: NVDA
     min_price: 200
-    change_pct: 5
+    change_pct: 3
   - symbol: TSLA
     change_pct: 2
     min_price: 300
@@ -33,8 +33,8 @@ stocks:
     change_pct: 2
     min_price: 650
   - symbol: LRCX
-    change_pct: 5
+    change_pct: 3
     min_price: 150
   - symbol: BTC-USD
-    change_pct: 5
+    change_pct: 3
     min_price: 70000
