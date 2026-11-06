@@ -2,9 +2,9 @@ name: stock_checker
 
 on:
   schedule:
-    # Hourly at :45, Mon-Fri, 14:45-21:45 UTC. Always after the US market open and
-    # catches the close: 6:45 AM-1:45 PM PST (winter), 7:45 AM-2:45 PM PDT (summer).
-    - cron: "45 14-21 * * 1-5"
+    # Hourly at :47, Mon-Fri, 14:47-21:47 UTC. Always after the US market open and
+    # catches the close: 6:47 AM-1:45 PM PST (winter), 7:47 AM-2:47 PM PDT (summer).
+    - cron: "47 14-21 * * 1-5"
   workflow_dispatch:
 
 jobs:
