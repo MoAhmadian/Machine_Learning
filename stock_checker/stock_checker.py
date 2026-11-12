@@ -1,10 +1,11 @@
 import json
 import os
 import smtplib
-from datetime import date, datetime, timezone
+from datetime import datetime, time, timezone
 from email.message import EmailMessage
 from html import escape
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import yaml
 import yfinance as yf
@@ -12,7 +13,19 @@ import yfinance as yf
 CONFIG = Path("watchlist.yml")
 STATE = Path(".state/alerts.json")
 
-GREEN, RED, AMBER, GRAY = "#16a34a", "#dc2626", "#d97706", "#6b7280"
+# Alerts are only sent inside this Pacific-time window (Mon-Fri).
+# Using America/Los_Angeles means daylight saving is handled automatically.
+PT = ZoneInfo("America/Los_Angeles")
+WINDOW_START = time(7, 47)
+WINDOW_END = time(12, 47)
+
+GREEN, RED, GRAY = "#16a34a", "#dc2626", "#6b7280"
+
+
+def in_alert_window(now=None):
+    now = now or datetime.now(PT)
+    t = now.time().replace(second=0, microsecond=0)
+    return now.weekday() < 5 and WINDOW_START <= t <= WINDOW_END
 
 
 def load_state():
@@ -46,7 +59,7 @@ def build_email(alerts, snapshot):
     """Return (subject, plain_text, html). Alerts/snapshot are lists of dicts."""
     symbols = list(dict.fromkeys(a["symbol"] for a in alerts))
     subject = f"Stock alert: {', '.join(symbols)}"
-    now = datetime.now(timezone.utc).strftime("%b %d, %Y %H:%M UTC")
+    now = datetime.now(PT).strftime("%b %d, %Y %I:%M %p %Z")
 
     # ---- plain-text fallback ----
     text = [f"stock_checker alerts ({now})", ""]
@@ -139,8 +152,13 @@ def send_email(subject, plain, html):
 
 
 def main():
+    # Manual runs (workflow_dispatch) always go through; scheduled runs only in the window.
+    if os.environ.get("GITHUB_EVENT_NAME") != "workflow_dispatch" and not in_alert_window():
+        print(f"Outside {WINDOW_START:%H:%M}-{WINDOW_END:%H:%M} PT window (Mon-Fri); skipping")
+        return
+
     stocks = yaml.safe_load(CONFIG.read_text())["stocks"]
-    today = date.today().isoformat()
+    today = datetime.now(PT).date().isoformat()
     # keep only today's dedupe keys so the state file stays tiny
     state = {k: v for k, v in load_state().items() if k.endswith(today)}
     alerts, snapshot = [], []
