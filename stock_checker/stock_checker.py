@@ -16,7 +16,7 @@ STATE = Path(".state/alerts.json")
 # Alerts are only sent inside this Pacific-time window (Mon-Fri).
 # Using America/Los_Angeles means daylight saving is handled automatically.
 PT = ZoneInfo("America/Los_Angeles")
-WINDOW_START = time(7, 47)
+WINDOW_START = time(5, 0)
 WINDOW_END = time(12, 47)
 
 GREEN, RED, GRAY = "#16a34a", "#dc2626", "#6b7280"
@@ -39,12 +39,34 @@ def save_state(state):
     STATE.write_text(json.dumps(state))
 
 
+NY = ZoneInfo("America/New_York")
+
+
+def today_ny():
+    return datetime.now(NY).date()
+
+
 def get_prices(symbol):
-    """Return (current_price, previous_close)."""
-    hist = yf.Ticker(symbol).history(period="5d", interval="1d")["Close"].dropna()
-    if len(hist) < 2:
+    """Return (current_price, previous_close).
+
+    previous_close = last COMPLETED daily close. Before today's session opens, the last
+    daily bar is yesterday's, so that bar is the previous close (not the one before it).
+    current price = latest trade including pre-market, falling back to the last daily close.
+    """
+    t = yf.Ticker(symbol)
+    daily = t.history(period="5d", interval="1d")["Close"].dropna()
+    if len(daily) < 2:
         raise ValueError("not enough price history")
-    return float(hist.iloc[-1]), float(hist.iloc[-2])
+    session_started = daily.index[-1].date() >= today_ny()
+    prev_close = float(daily.iloc[-2] if session_started else daily.iloc[-1])
+    price = float(daily.iloc[-1])
+    try:
+        intraday = t.history(period="2d", interval="1h", prepost=True)["Close"].dropna()
+        if len(intraday):
+            price = float(intraday.iloc[-1])
+    except Exception:
+        pass  # keep the daily-bar price
+    return price, prev_close
 
 
 def money(x):

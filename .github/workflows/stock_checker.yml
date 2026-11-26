@@ -2,10 +2,17 @@ name: stock_checker
 
 on:
   schedule:
-    # Hourly at minute 47th, Mon-Fri, 14:47-21:47 UTC. Always after the US market open and
-    # catches the close: 6:47 AM-1:45 PM PST (winter), 7:47 AM-2:47 PM PDT (summer).
-    - cron: "47 14-21 * * 1-5"
+    # Every 20 minutes (:07, :27, :47), Mon-Fri, 12:00-20:59 UTC.
+    # Alert window is 5:00 AM-12:47 PM Pacific (enforced in the script). Slots start at
+    # 5:07 AM PT (summer) / 4:07 AM PT (winter; that first hour just exits). GitHub drops
+    # and delays scheduled runs, so extra slots raise the odds some arrive on time. The
+    # once-per-day de-duplication state prevents repeat emails.
+    - cron: "7,27,47 12-20 * * 1-5"
   workflow_dispatch:
+
+concurrency:
+  group: stock_checker
+  cancel-in-progress: false
 
 jobs:
   check:
